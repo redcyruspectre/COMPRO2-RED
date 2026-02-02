@@ -1,3 +1,4 @@
+package practice.week3;
 import java.util.*;
 
 public class ExeptionalHanling2 {
