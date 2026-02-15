@@ -1,5 +1,0 @@
-Enter your First: red cyrus
-Enter your Last: oloresisimo
-Enter your Age: 19
-Enter your Email: gmail.com
-Enter your Phone Number: 1234567890

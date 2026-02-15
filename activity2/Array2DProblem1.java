@@ -2,7 +2,7 @@ package activity2;
 
 import java.util.*;
 
-public class Array2D {
+public class Array2DProblem1 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
