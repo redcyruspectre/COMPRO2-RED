@@ -1,5 +1,3 @@
-package activity4;
-
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
