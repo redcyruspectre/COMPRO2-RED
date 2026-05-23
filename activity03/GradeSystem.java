@@ -168,7 +168,7 @@ public class GradeSystem {
                 sum += grade;
             }
             double average = sum / grades.size();
-            System.out.println("Average for Subject " + subjectNum + ": " + average);
+             System.out.println("Average for Subject " + subjectNum + ": " + average);
         }
     }
 }
