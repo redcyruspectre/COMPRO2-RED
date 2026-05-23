@@ -1,7 +1,6 @@
-package activity3;
 import java.util.Scanner;
 import java.util.ArrayList;
- 
+  
 public class GradeSystem {
     // Storage for grades of each subject
     private static ArrayList<Double> subject1Grades = new ArrayList<>();
