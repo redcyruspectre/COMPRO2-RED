@@ -1,59 +1,54 @@
-package activity15;
+package com.redcyrus;
+
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
-
 public class WeatherFetcher {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+        double lon;
+        double lat;
 
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("=== Weather Data Fetcher ===");
-        System.out.print("Enter Latitude : ");
-        String lat = scanner.nextLine().trim();
+        Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter Longitude : ");
-        String lon = scanner.nextLine().trim();
-
-        scanner.close();
+        lon = sc.nextDouble();
+        System.out.print("Enter Latitude : ");
+        lat = sc.nextDouble();
 
         HttpClient client = HttpClient.newHttpClient();
 
-
-        String url = "https://www.7timer.info/bin/astro.php"
-                   + "?lon=" + lon
-                   + "&lat=" + lat
-                   + "&ac=0&unit=metric&output=json";
+        String format = String.format("https://www.7timer.info/bin/astro.php?lon=%f&lat=%f&ac=0&unit=metric&output=json", lon, lat);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
+                .uri(URI.create(format))
                 .GET()
                 .build();
 
-        System.out.println("\nSending request to server...");
+        System.out.println("Sending request...");
 
+        HttpResponse<String> codeResponse;
         try {
-            
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            codeResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-           
-            System.out.println("Status Code: " + response.statusCode());
+            System.out.println("Status code : " + codeResponse.statusCode());
 
-            if (response.statusCode() == 200) {
-                System.out.println("SUCCESS! Raw JSON data received:");
-                System.out.println(response.body());
+            if (codeResponse.statusCode() == 200) {
+                System.out.println(codeResponse.body());
             } else {
-                System.out.println("SERVER ERROR: Something went wrong.");
+                System.out.println("Ooops! Something went wrong");
             }
-
-        } catch (Exception e) {
+        } catch (IOException e) {
+            System.err.println("NETWORK ERROR: Check your internet connection!");
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             System.err.println("NETWORK ERROR: Check your internet connection!");
             e.printStackTrace();
         }
+
     }
 }
