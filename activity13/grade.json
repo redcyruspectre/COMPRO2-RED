@@ -1,0 +1,26 @@
+[
+  {
+    "subjectName": "UTS",
+    "prelim": 87.0,
+    "midterm": 78.0,
+    "finalGrade": 91.0
+  },
+  {
+    "subjectName": "CFVE",
+    "prelim": 89.0,
+    "midterm": 90.0,
+    "finalGrade": 90.0
+  },
+  {
+    "subjectName": "MMW",
+    "prelim": 78.0,
+    "midterm": 79.0,
+    "finalGrade": 78.0
+  },
+  {
+    "subjectName": "OOP",
+    "prelim": 87.0,
+    "midterm": 85.0,
+    "finalGrade": 89.0
+  }
+]
